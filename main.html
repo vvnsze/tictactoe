@@ -10,7 +10,8 @@
   </head>
   <body class ="container">
     <h1 id="title">| Tic Tac Toe |</h1>
-    <h4>It's you turn, Playa __!</h4>
+    <h4 class="playerturn"></h4>
+    <!-- <h4>It's you turn, Playa!</h4> -->
     <!-- table for board -->
     <table class="tictacboard">
       <tr class="tictacrow">
@@ -35,10 +36,10 @@
     </div>
     <!-- table for scoreboard -->
     <table class="scoreboard">
-      <tr>
-        <th class="head">Name</th>
+      <tr class= "names">
+        <th class="head" id="scoreName1">Name1</th>
         <th class="head">Draws</th>
-        <th class="head">Name2</th>
+        <th class="head" id="scoreName2">Name2</th>
       </tr>
       <tr>
         <td class="score" id="P1Score">P1 Score</td>
