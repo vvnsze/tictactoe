@@ -1,0 +1,132 @@
+h4{
+  color:white;
+  font-size: 28px;
+  text-align: center;
+  font-family: 'Bungee Inline', arial;
+}
+
+button{
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
+  font-family: 'Bungee Inline', arial;
+}
+
+.container {
+  background-color: black;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.border-container{
+  background-image: url(../TICTACTOE/images/xo_corner.jpg);
+  background-repeat: repeat;
+  height: 80px;
+  width:100%;
+  position: absolute;
+  bottom:0;
+  background-size: contain;
+}
+
+.tictacboard {
+  width:50%;
+  border:solid;
+  border-width: thick;
+  border-radius: 10px;
+  text-align: center;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tictacrow {
+  color: white;
+  background-color: black;
+  border-color: white;
+  /*border-width: 60px;*/
+  border:solid;
+  height: 100px;
+}
+
+.tictacdata {
+  color:white;
+  font-family: 'Bungee Inline', arial;
+  font-size: 20px
+  border-color: white;
+  border-width: thick;
+  border: solid;
+}
+
+
+.line{
+  color: lightgrey;
+  width: 100%;
+  height: 5px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.centerbutt {
+  text-align: center;
+}
+
+.scoreboard{
+  width:20%;
+  border:solid;
+  border-width: thick;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-color: white;
+}
+
+.score{
+  color:white;
+  font-family: 'Bungee Inline', arial;
+  font-size: 10px
+  border-color: white;
+  border-width: thin;
+  border: solid;
+  height: 5px;
+  padding: 5px;
+
+}
+
+table button {
+  width: 80px;
+  height: 80px;
+}
+
+.head{
+  color:white;
+  font-family: 'Bungee Inline', arial;
+  font-size: 5px
+  border-color: white;
+  border-width: thin;
+  padding-top: 5px;
+  padding-bottom: auto;
+  height: 5px;
+}
+
+#reset {
+    background-color: black; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: 'Bungee Inline', arial;
+}
+
+#title{
+  color:white;
+  font-size: 60px;
+  text-align: center;
+  font-family: 'Bungee Inline', arial;
+}
