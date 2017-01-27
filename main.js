@@ -10,11 +10,11 @@ $(document).ready(function(){
     currentPlayerVal: 2,
     playerOne: {
       symbol: 'X',
-      value: '2'
+      value: 2
     },
     playerTwo:{
       symbol: 'O',
-      value: '5'
+      value: 5
     },
 
     initial: 0,
@@ -38,23 +38,23 @@ $(document).ready(function(){
     nameTwoScore: 0,
     draw: 0,
     player1Score:function(){
-      if(nameOneScore++){
-        $("#P1Score").val(nameOneScore);//not sure if this works
-      };
+        $("#P1Score").text(this.nameOneScore);//not sure if this works
     },
     player2Score:function(){
-      if(nameOneScore++){
-        $("#P1Score").val(nameOneScore);//not sure if this works
-      };
+        $("#P2Score").text(this.nameTwoScore);//not sure if this works
     },
 //Below is the actual board where we need to put in values;
-    board: [[0,0,0],
-            [0,0,0],
-            [0,0,0]]//, don't forget comma if you put anything afterwards
+    board: [0,0,0,
+            0,0,0,
+            0,0,0],//, don't forget comma if you put anything afterwards
 
     // winner: function(){//announce winner. worry about this later.
     //   return;
     // }
+    nextRound: function(){
+      this.board = [0,0,0,0,0,0,0,0,0];
+      $('.tictacdata').text(' ');
+    }
   }
 
 //To show the x's and o's in the game
@@ -82,55 +82,52 @@ $(document).ready(function(){
   //all the buttons have an ID that changes the value of the board
 
   $("#a1").click(function(){
-    game.board[0][0] = game.currentPlayerVal;
+    game.board[0] = game.currentPlayerVal;
     $("a1").hide();
-    console.log('when you click a1', game.board[0][0]);
+    console.log('when you click a1: ', game.board[0]);
+    if(game.board[0] + game.board[1] + game.board[2] === 6){
+      console.log('This player won a point');
+      game.nameOneScore++;
+      game.player1Score();
+      game.nextRound();
+    }
   });
 
-  // $("#a2").click(function(){
-  //   game.board[0][0] = game.currentPlayerVal;
-  //   $("a2").hide();
-  //   console.log('when you click a2', game.board[0][0]);
-  // });
-  //
-  // $("#a3").click(function(){
-  //   game.board[0][0] = game.currentPlayerVal;
-  //   $("a1").hide();
-  //   console.log('when you click a3', game.board[0][0]);
-  // });
-  //
-  // $("#b1").click(function(){
-  //   game.board[0][0] = game.currentPlayerVal;
-  //   $("b1").hide();
-  //   console.log('when you click b1', game.board[0][0]);
-  // });
-  //
-  // $("#b2").click(function(){
-  //   game.board[0][0] = game.currentPlayerVal;
-  //   $("a1").hide();
-  //   console.log('when you click b2', game.board[0][0]);
-  // });
-  //
-  // $("#b3").click(function(){
-  //   game.board[0][0] = game.currentPlayerVal;
-  //   $("a1").hide();
-  //   console.log('when you click b3', game.board[0][0]);
-  // });
-  //
-  // $("#c1").click(function(){
-  //   game.board[0][0] = game.currentPlayerVal;
-  //   $("a1").hide();
-  //   console.log('when you click c1', game.board[0][0]);
-  // });
-  //
-  // $("#c2").click(function(){
-  //   game.board[0][0] = game.currentPlayerVal;
-  //   $("a1").hide();
-  //   console.log('when you click c2', game.board[0][0]);
-  // });
-  //reset button
+  $("#a2").click(function(){
+    game.board[1] = game.currentPlayerVal;
+    $("a2").hide();
+    console.log('when you click a2: ', game.board[1]);
+    if(game.board[0] + game.board[1] + game.board[2] === 6){
+      console.log('This player won a point');
+      game.nameOneScore++;
+      game.player1Score();
+      game.nextRound();
+    }
+  });
+
+  $("#a3").click(function(){
+    game.board[2] = game.currentPlayerVal;
+    $("a3").hide();
+    console.log('when you click a3: ', game.board[2]);
+    if(game.board[0] + game.board[1] + game.board[2] === 6){
+      console.log('This player won a point');
+      game.nameOneScore++;
+      game.player1Score();
+      game.nextRound();
+    }
+  });
+
+    //reset button
   $('#reset').click(function(){
     console.log('you clicked reset');
+    game.board =[[0],[0],[0],[0],[0],[0],[0],[0],[0]];
+    $("a1").show().text('');
+    $("a2").show().text('');
+    $("a3").show().text('');
+    game.nameOneScore = 0;
+    game.nameTwoScore = 0;
+    $(".score").text("0");
+
   });
 
 })//end of document.ready
