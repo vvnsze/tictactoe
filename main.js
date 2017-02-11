@@ -39,9 +39,11 @@ $(document).ready(function(){
     draw: 0,
     player1Score:function(){
         $("#P1Score").text(this.nameOneScore);//not sure if this works
+        this.nextRound();
     },
     player2Score:function(){
         $("#P2Score").text(this.nameTwoScore);//not sure if this works
+        this.nextRound();
     },
 //Below is the actual board where we need to put in values;
     board: [0,0,0,
@@ -53,17 +55,20 @@ $(document).ready(function(){
     // }
     nextRound: function(){
       this.board = [0,0,0,0,0,0,0,0,0];
-      $('.tictacdata').text(' ');
+      $('.tictacdata').children('button').text(' ');
+      $('.tictacdata').children('button').show();
+      console.log('nextRound'); 
     }
   }
 
 //To show the x's and o's in the game
-  $('.tictacdata').click(function(){
-    var currentVal = $(this).children('button').text();
+  $('.tictacdata button').click(function(){
+    console.log('xo')
+    var currentVal = $(this).text();
     if (currentVal === 'X' || currentVal === 'O'){
       return;
     }
-    $(this).children('button').text(game.toggle());
+    $(this).text(game.toggle());
   })
 
 //initially change the player name on the board
@@ -79,43 +84,6 @@ $(document).ready(function(){
     }
   }
 
-  //all the buttons have an ID that changes the value of the board
-
-  $("#a1").click(function(){
-    game.board[0] = game.currentPlayerVal;
-    $("a1").hide();
-    console.log('when you click a1: ', game.board[0]);
-    if(game.board[0] + game.board[1] + game.board[2] === 6){
-      console.log('This player won a point');
-      game.nameOneScore++;
-      game.player1Score();
-      game.nextRound();
-    }
-  });
-
-  $("#a2").click(function(){
-    game.board[1] = game.currentPlayerVal;
-    $("a2").hide();
-    console.log('when you click a2: ', game.board[1]);
-    if(game.board[0] + game.board[1] + game.board[2] === 6){
-      console.log('This player won a point');
-      game.nameOneScore++;
-      game.player1Score();
-      game.nextRound();
-    }
-  });
-
-  $("#a3").click(function(){
-    game.board[2] = game.currentPlayerVal;
-    $("a3").hide();
-    console.log('when you click a3: ', game.board[2]);
-    if(game.board[0] + game.board[1] + game.board[2] === 6){
-      console.log('This player won a point');
-      game.nameOneScore++;
-      game.player1Score();
-      game.nextRound();
-    }
-  });
 
     //reset button
   $('#reset').click(function(){
