@@ -6,7 +6,7 @@
 // - winner found
 //  --
 
-function checkBoard(square) {
+function checkBoard() {
   // takes a square and checks the row and column of the square
 
   //check rows
@@ -40,24 +40,33 @@ function checkBoard(square) {
     //player o wins
     game.player2Score();
   }
+
+  for(var spot = 0; spot < game.board; spot++){
+    var count = 0;
+    if (game.board[0] !== 0){
+      count++;
+    }
+    if(count === 9){
+      game.tie();
+    }
 }
 
 
 function gameOver() {
 
 }
-
-game = {
-  currentPlayer: 0,
-  players: [
-    {symbol: X, value: 2},
-    {symbol: O, value: 1}
-  ]
-}
-
-function togglePlayer() {
-  game.currentPlayer =  Math.abs(game.currentPlayer - 1)
-}
-
-game.players[game.currentPlayer].symbol
-game.players[game.currentPlayer].value
+//
+// game = {
+//   currentPlayer: 0,
+//   players: [
+//     {symbol: X, value: 2},
+//     {symbol: O, value: 1}
+//   ]
+// }
+//
+// function togglePlayer() {
+//   game.currentPlayer =  Math.abs(game.currentPlayer - 1)
+// }
+//
+// game.players[game.currentPlayer].symbol
+// game.players[game.currentPlayer].value

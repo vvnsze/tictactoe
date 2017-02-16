@@ -38,13 +38,16 @@ $(document).ready(function(){
     nameTwoScore: 0,
     draw: 0,
     player1Score:function(){
-        $("#P1Score").text(this.nameOneScore);//not sure if this works
+        $("#P1Score").text(this.nameOneScore);
         this.nextRound();
     },
     player2Score:function(){
-        $("#P2Score").text(this.nameTwoScore);//not sure if this works
+        $("#P2Score").text(this.nameTwoScore);
         this.nextRound();
     },
+    tie:function(){
+      $("#DrawScore").text(this.draw);
+    }
 //Below is the actual board where we need to put in values;
     board: [0,0,0,
             0,0,0,
@@ -57,7 +60,7 @@ $(document).ready(function(){
       this.board = [0,0,0,0,0,0,0,0,0];
       $('.tictacdata').children('button').text(' ');
       $('.tictacdata').children('button').show();
-      console.log('nextRound'); 
+      console.log('nextRound');
     }
   }
 
@@ -70,6 +73,8 @@ $(document).ready(function(){
     }
     $(this).text(game.toggle());
   })
+
+
 
 //initially change the player name on the board
   if(game.initial === 0){
