@@ -51,10 +51,6 @@ function checkBoard() {
     }
 }
 
-
-function gameOver() {
-
-}
 //
 // game = {
 //   currentPlayer: 0,
